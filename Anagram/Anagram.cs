@@ -33,18 +33,15 @@ namespace Anagram
         {
             //Insert the correct implementation here
 
-            //create a list for anagram candidate
-            List<string> anagramCandidates = new List<string>();
-
-            foreach(string candidate in candidates)
+            foreach(string candidate in candidates.ToList())
             {
-                if (WordPairIsAnagram(word, candidate))
+                if (!WordPairIsAnagram(word, candidate))
                 {
-                    anagramCandidates.Add(candidate);
+                    candidates.Remove(candidate);
                 }
             }
 
-            return anagramCandidates;
+            return candidates;
 
         }
     }
